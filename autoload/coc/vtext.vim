@@ -57,13 +57,13 @@ function! coc#vtext#add(bufnr, src_id, line, blocks, opts) abort
       else
         let opts['virt_text'] = a:blocks
         if s:n10 && column != 0
-          let opts['virt_text_pos'] = 'inline'
+          let opts['virt_text_pos'] = 'eol'
         elseif align ==# 'right'
           let opts['virt_text_pos'] = 'right_align'
         else
           if type(get(a:opts, 'virt_text_win_col', v:null)) == 0
             let opts['virt_text_win_col'] = a:opts['virt_text_win_col']
-            let opts['virt_text_pos'] = 'overlay'
+            let opts['virt_text_pos'] = 'eol'
           else
             " default to 'after'
             let opts['virt_text_pos'] = 'eol'
@@ -73,7 +73,7 @@ function! coc#vtext#add(bufnr, src_id, line, blocks, opts) abort
     else
       if has('nvim-0.5.1') && type(get(a:opts, 'virt_text_win_col', v:null)) == 0
         let opts['virt_text_win_col'] = a:opts['virt_text_win_col']
-        let opts['virt_text_pos'] = 'overlay'
+        let opts['virt_text_pos'] = 'eol'
       endif
     endif
     let col = s:n10 ? column - 1 : 0

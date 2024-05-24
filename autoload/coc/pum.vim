@@ -583,7 +583,7 @@ function! s:insert_virtual_text() abort
         let opts = {
             \ 'hl_mode': 'combine',
             \ 'virt_text': [[insert, 'CocPumVirtualText']],
-            \ 'virt_text_pos': 'overlay',
+            \ 'virt_text_pos': 'eol',
             \ 'virt_text_win_col': virtcol('.') - 1,
             \ }
         call nvim_buf_set_extmark(bufnr, s:virtual_text_ns, line, col('.') - 1, opts)

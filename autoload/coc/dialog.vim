@@ -178,7 +178,7 @@ function! coc#dialog#_create_prompt_nvim(title, default, opts) abort
     let src_id = coc#highlight#create_namespace('input-box')
     call nvim_buf_set_extmark(bufnr, src_id, 0, 0, {
           \ 'virt_text': [[placeHolder, 'CocInputBoxVirtualText']],
-          \ 'virt_text_pos': 'overlay',
+          \ 'virt_text_pos': 'eol',
           \ })
   endif
   call coc#util#do_autocmd('CocOpenFloatPrompt')
